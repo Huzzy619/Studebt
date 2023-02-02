@@ -55,15 +55,10 @@ class PrincipalSerializer (serializers.ModelSerializer):
         model = Principal
         fields = ['id', 'name', 'gender', 'date_of_birth', 'address',
                   'id_type', 'id_number', 'CAC', 'letter', 'id_card']
-
+    
     def save(self, **kwargs):
-
         user = self.context['user']
-
-        self.instance = Principal.objects.create(
-            user=user, **self.validated_data)
-
-        return self.instance
+        return super().save(user=user, **self.validated_data)
 
 
 class AddStudentSerializer (serializers.ModelSerializer):
