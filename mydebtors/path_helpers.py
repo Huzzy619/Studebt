@@ -34,4 +34,4 @@ def get_school_logo_path(request, filename):
 
 
 def reg_number_generator (length = 10, chars = string.digits):
-    return ''.join(random.choice(chars) for _ in range(length))
+    return ''.join(random.choice(chars) for _ in range(length))#
