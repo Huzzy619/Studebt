@@ -5,7 +5,7 @@ import dj_database_url
 from .settings import *
 
 ALLOWED_HOSTS = ['studebt4-prod.herokuapp.com', "studebt.up.railway.app"]
-CSRF_ALLOWED_ORIGINS = ["https://studebt.up.railway.app"]
+CSRF_ALLOWED_ORIGINS = ["https://" + host for host in ALLOWED_HOSTS]
 
 DEBUG = False
 

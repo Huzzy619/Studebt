@@ -55,20 +55,8 @@ DATABASES = {
 # Application definition
 
 INSTALLED_APPS = [
-    'core',
-    'mydebtors',
-    'info_hub',
-    'likes',
-
-    'corsheaders',
-    'django_filters',
-    'djoser',
     'jazzmin',
 
-    'rest_framework',
-    'rest_framework.authtoken',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -78,6 +66,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',  # new
 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+
+
+    'corsheaders',
+    'django_filters',
+    'djoser',
     'drf_yasg',
 
     'cloudinary_storage',
@@ -91,6 +88,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    
+    'core',
+    'mydebtors',
+    'info_hub',
+    'likes',
 ]
 
 MIDDLEWARE = [
