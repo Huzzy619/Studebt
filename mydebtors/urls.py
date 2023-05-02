@@ -6,7 +6,7 @@ from .views import *
 
 router = DefaultRouter()
 
-router.register('school', SchoolViewSet)
+# router.register('school', SchoolViewSet)
 router.register('principal', PrincipalViewSet)
 router.register('sponsor', SponsorViewSet )
 router.register('biodata', BioDataViewSet, basename='biodata')
@@ -15,9 +15,9 @@ router.register('debt', DebtViewSet)
 # router.register('contact-details', ContactViewSet, basename='contact_details')
 
 
-student_router = NestedDefaultRouter(router, 'school', lookup = 'school')
+# student_router = NestedDefaultRouter(router, 'school', lookup = 'school')
 
-student_router.register('students', StudentViewSet, basename='school-students')
+# student_router.register('students', StudentViewSet, basename='school-students')
 
 
 
@@ -30,7 +30,7 @@ urlpatterns =  [
     path('contact-details', ContactViewSet.as_view(), ),
 ] 
 
-urlpatterns += router.urls + student_router.urls
+urlpatterns += router.urls #+ student_router.urls
 
 
 

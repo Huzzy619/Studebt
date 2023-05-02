@@ -97,6 +97,7 @@ class ContactViewSet(APIView):
 class PrincipalViewSet (ModelViewSet):
     queryset = Principal.objects.all()
     serializer_class = PrincipalSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_context(self):
         return {'user': self.request.user}
@@ -129,6 +130,11 @@ class StudentViewSet(ModelViewSet):
         if self.kwargs:
             context = {'school_id': self.kwargs['school_pk']}
             return context
+        return super().get_serializer_context()
+        
+
+    
+    # def get_serializer_context(self):
 
     # def get_permissions(self):
 
@@ -169,6 +175,7 @@ class DebtViewSet (ModelViewSet):
 
     queryset = Debt.objects.all()
     serializer_class = DebtSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.request.method == 'POST':
@@ -244,6 +251,8 @@ class ComplaintViewSet (ModelViewSet):
 
             }
             return context
+        return super().get_serializer_context()
+        
 
 
 # Alternative View And EndPoint
@@ -307,7 +316,7 @@ class DebtView (APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-# View To retrieve  a list Cleared Debtors in a particualar school
+# View To retrieve  a list Cleared Debtors in a particular school
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

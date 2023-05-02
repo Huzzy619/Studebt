@@ -75,7 +75,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'djoser',
-    'drf_yasg',
+    'drf_spectacular',
 
     'cloudinary_storage',
     'cloudinary',
@@ -181,7 +181,7 @@ STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # STATICFILES_DIRS = [BASE_DIR / "static"]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 
 
 MEDIA_URL = "/media/"
@@ -202,8 +202,19 @@ REST_FRAMEWORK = {
 
     ),
     'COERCE_DECIMAL_TO_STRING': False,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "NON_FIELD_ERRORS_KEY": "error",
 
+}
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Studebt API",
+    "DESCRIPTION": "Studebt API Provides backend functionality for A web based application that helps schools keep track of student's credit history.",
+    "VERSION": "0.1.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    # "ENUM_NAME_OVERRIDES" :{"Category57aEnum": "CategoryEnum"}
+    # OTHER SETTINGS
+    "DISABLE_ERRORS_AND_WARNINGS": True,
+    "SCHEMA_COERCE_PATH_PK_SUFFIX": True,
 }
 
 SIMPLE_JWT = {

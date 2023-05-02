@@ -16,7 +16,14 @@ SECRET_KEY = os.environ['SECRET_KEY']
 #     'default': dj_database_url.config()
 # }
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STORAGES = {
+    "staticfiles":{
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"
+    },
+    "default":{
+        "BACKEND": 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    }
+}
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ['CLOUD_NAME'],
