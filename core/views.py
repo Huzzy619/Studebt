@@ -53,7 +53,7 @@ class OTPView (APIView):
         return Response({"error" : "invalid otp"})
 
 
-class CustomSocialLoginView(SocialLoginView):
+class CustomSocialLoginView(SocialLoginView):  
     serializer_class = CustomSocialLoginSerializer
 
 
